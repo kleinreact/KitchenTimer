@@ -1,0 +1,42 @@
+###############################################################################
+
+CFG_PATH:=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
+BUILDDIR=build
+
+BLINK_FLAGS=-d 1k -P vq100
+CLASH_FLAGS=-fconstraint-solver-iterations=0
+
+###############################################################################
+
+# https://haskellstack.org
+STACK=stack
+
+# https://github.com/clash-lang/clash-compiler
+CLASH=clash
+
+# https://github.com/cliffordwolf/yosys
+YOSYS=yosys
+
+# https://github.com/YosysHQ/nextpnr
+NEXTPNR=nextpnr-ice40
+
+# https://github.com/cliffordwolf/icestorm/tree/master/icepack
+ICEPACK=icepack
+
+# https://github.com/cliffordwolf/icestorm/tree/master/iceprog
+ICEPROG=iceprog
+
+# https://github.com/reactive-systems/tsltools
+TSL2TLSF=tsl2tlsf
+
+# https://github.com/reactive-systems/tsltools
+CFM2CODE=cfm2code
+
+# https://github.com/reactive-systems/icedude
+ICEDUDE=iCEDude
+
+# https://strix.model.in.tum.de
+SYNTH=strix -m
+
+###############################################################################

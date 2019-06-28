@@ -1,0 +1,9 @@
+resolver: lts-13.17
+flags: {}
+extra-deps:
+extra-deps:
+  [ simple-affine-space-0.1
+  , SDL-mixer-0.6.3.0
+  , SDL-0.6.7.0
+  , paths-0.2.0.0
+  ]

@@ -1,0 +1,35 @@
+name:                threepenny-gui-kitchentimer
+version:             1.0.0.0
+synopsis:            Synthezied Timer (Threepenny-GUI Version)
+description:         Test program to implement a synthesized timer using Threepenny-GUI.
+license:             MIT
+license-file:        LICENSE
+author:              Mark Santolucito
+                     Felix Klein
+maintainer:          mark.santolucito@yale.edu
+                     klein@react.uni-saarland.de
+category:            Synthesis
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable KitchenTimer
+
+  main-is:
+    Main.hs
+
+  ghc-options:
+    -Wall -Wno-name-shadowing
+
+  build-depends:
+      base >=4.11 && <4.13
+    , threepenny-gui
+
+  other-modules:
+    Control
+    Beep
+
+  hs-source-dirs:
+    src
+
+  default-language:
+    Haskell2010

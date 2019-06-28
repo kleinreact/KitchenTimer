@@ -1,0 +1,104 @@
+// operations on the time value
+COUNTUP   = [ time <- countup time dt ];
+COUNTDOWN = [ time <- countdown time dt ];
+INCMIN    = [ time <- incMinutes time ];
+INCSEC    = [ time <- incSeconds time ];
+IDLE      = [ time <- time ];
+
+// predicate checking for equality
+ZERO      = eq time zero();
+
+// pressing "MIN" and "SEC" indicates a reset
+RESET =
+  btnMin && btnSec;
+
+// the timer either counts up or downn
+COUNTING =
+  COUNTUP || COUNTDOWN;
+
+// there are three possible buttons to press
+ANYKEY =
+  press btnMin || press btnSec || press btnStartStop;
+
+// the timer is started by pressing start only
+START =
+  press btnStartStop && !press btnMin && !press btnSec;
+
+// starting the time and increasing minutes can
+// happpen at the same time
+STARTANDMIN =
+  press btnStartStop && press btnMin &&
+  X !btnSec && X X !btnSec;
+
+// starting the time and increasing seconds can
+// happpen at the same time
+STARTANDSEC =
+  press btnStartStop && press btnSec &&
+    X !btnMin && X X !btnMin;
+
+// executes a till the counter is reset or a button
+// is pressed
+tillAnyInput a =
+(a && !ANYKEY) W (RESET || a && ANYKEY);
+
+// "xor" operation (as it is not supported by the
+// specification format)
+xor a b =
+  !(a <-> b);
+
+// a button press is indicated by a signal change
+// from low to high
+press x =
+  !x && X x;
+
+initially guarantee {
+  // the timer does not start counting immediately
+  !COUNTING;
+  X COUNTING -> START;
+
+  // the timer is not increased immediately
+  !INCSEC;
+  !INCMIN;
+
+  // initially the buzzer is disabled
+  [ beep <- false ];
+}
+
+always guarantee {
+  // it is always possible to reset
+  RESET <-> [ time <- zero() ];
+
+  // setting time is only possible if not running
+  !COUNTING && press btnMin && X !btnSec <-> X INCMIN;
+  !COUNTING && press btnSec && X !btnMin <-> X INCSEC;
+
+  // upward counting is enabled as long as no time has been set
+  ZERO
+    -> ((IDLE && START -> X tillAnyInput COUNTUP) W (INCMIN || INCSEC));
+
+  // downard counting is enabled by setting time
+  INCMIN || INCSEC
+    -> ((!COUNTING && START -> X tillAnyInput COUNTDOWN) W X ZERO);
+
+  // starting the counter and setting time can happen simultaniously
+  !COUNTING && (STARTANDMIN || STARTANDSEC)
+    -> X X tillAnyInput COUNTDOWN;
+
+  // the timer can be stopped by any key while counting
+  COUNTING && ANYKEY && X !RESET
+    -> X tillAnyInput IDLE;
+
+  // the counter can only be started by pressing start
+  X !COUNTING && X X COUNTING ->
+    X START || STARTANDMIN || STARTANDSEC;
+  
+  // display the current time
+  [ dsp <- display time ];
+
+  // the beeper is either enabled or disabled
+  xor [ beep <- true ] [ beep <- false ];
+
+  // beep when the counter reaches zero or a buttion is pressed
+  X (COUNTDOWN && ZERO) || ANYKEY
+    <-> X [ beep <- true ];
+}

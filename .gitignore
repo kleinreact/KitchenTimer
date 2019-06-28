@@ -1,0 +1,13 @@
+*.tlsf
+*.cfm
+build.cfg
+clash/src/Control.hs
+clash/build
+yampa/src/Control.hs
+yampa/.stack-work
+yampa/dist
+yampa/KitchenTimer
+threepennygui/src/Control.hs
+threepennygui/.stack-work
+threepennygui/dist
+threepennygui/KitchenTimer
