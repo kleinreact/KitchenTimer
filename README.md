@@ -1,8 +1,8 @@
 # TSL Kitchen Timer
 
-| Desktop version using [Yampa](https://wiki.haskell.org/Yampa) | Web version using [Threepenny-GUI](https://wiki.haskell.org/Threepenny-gui) | Hardware version using [CλaSH](https://clash-lang.org/) |
+| <img src="https://github.com/reactive-systems/KitchenTimer/blob/master/yampa/application.png" alt="Desktop Version" style="max-height:150px;"> | <img src="https://github.com/reactive-systems/KitchenTimer/blob/master/threepennygui/application.png" alt="Web Version" style="max-height=150px;"> | <img src="https://github.com/reactive-systems/KitchenTimer/blob/master/clash/application.png" alt="Hardware Version" style="max-height: 150px;"> |
 |-|-|-|
-| <img src="https://github.com/reactive-systems/KitchenTimer/blob/master/yampa/application.png" width="200" alt="Desktop Version" style="max-height:200px;"> | <img src="https://github.com/reactive-systems/KitchenTimer/blob/master/threepennygui/application.png" alt="Web Version" style="max-height=200px;"> | <img src="https://github.com/reactive-systems/KitchenTimer/blob/master/clash/application.png" alt="Hardware Version" style="max-height: 200px;"> |
+| Desktop version using [Yampa](https://wiki.haskell.org/Yampa) | Web version using [Threepenny-GUI](https://wiki.haskell.org/Threepenny-gui) | Hardware version using [CλaSH](https://clash-lang.org/) |
 
 We use [Temproal Stream Logic
 (TSL)](https://www.react.uni-saarland.de/publications/FKPS19a.html)
