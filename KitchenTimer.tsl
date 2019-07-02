@@ -72,7 +72,7 @@ always guarantee {
   !COUNTING && press btnMin && X !btnSec <-> X INCMIN;
   !COUNTING && press btnSec && X !btnMin <-> X INCSEC;
 
-  // upward counting is enabled as long as no time has been set
+  // upward counting is enabled till a time is set
   ZERO
     -> ((IDLE && START -> X tillAnyInput COUNTUP) W (INCMIN || INCSEC));
 
@@ -80,25 +80,25 @@ always guarantee {
   INCMIN || INCSEC
     -> ((!COUNTING && START -> X tillAnyInput COUNTDOWN) W X ZERO);
 
-  // starting the counter and setting time can happen simultaniously
+  // starting the timer and setting time can happen simultaneously
   !COUNTING && (STARTANDMIN || STARTANDSEC)
     -> X X tillAnyInput COUNTDOWN;
 
-  // the timer can be stopped by any key while counting
+  // the timer is stopped by any key while counting
   COUNTING && ANYKEY && X !RESET
     -> X tillAnyInput IDLE;
 
-  // the counter can only be started by pressing start
+  // the counter is only started when pressing start
   X !COUNTING && X X COUNTING ->
     X START || STARTANDMIN || STARTANDSEC;
-  
+
   // display the current time
   [ dsp <- display time ];
 
   // the beeper is either enabled or disabled
   xor [ beep <- true ] [ beep <- false ];
 
-  // beep when the counter reaches zero or a buttion is pressed
+  // beep if the counter reaches zero or a button gets pressed
   X (COUNTDOWN && ZERO) || ANYKEY
     <-> X [ beep <- true ];
 }
