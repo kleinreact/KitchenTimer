@@ -50,15 +50,7 @@ realize the following requirements:
   reaches zero while counting down.
 10. The display always shows the time that is currently set.
 
-# Requirements
-
-The desktop and web applications run on most of the resent OS
-distributions, e.g., Linux, iOS, and Windows. To play with hardware,
-however, the respective parts must be purchased first and some
-adapters need be created. More details on the individual steps are
-provided [here (TBD)]().
-
-# Installation
+# Installation Requirements
 
 First, create a copy of `build.cfg_sample` and safe it to `build.cfg`:
 
@@ -73,18 +65,17 @@ respective paths must be set in `build.cfg`.
 
 ## Synthesis
 
-* [TSLTools](https://github.com/reactive-systems/tsltools) (provides
-  `tsl2tlsf`, `cfm2code`)
-* An LTL synthesizer that adheres to the rules of the LTL track of the
-  [Reactive Synthesis Competition
-  (SYNTCOMP)](http://www.syntcomp.org/). We used [Strix
-  (v18.07)](https://strix.model.in.tum.de/), since the tool is able to
-  synthesize a CFM from the TSL specification within a few
-  seconds. However, other alternatives also are also possible, as for
-  example the tools [BoSy](https://github.com/reactive-systems/bosy),
-  or [PARTY](https://github.com/5nizza/party-elli).
+You need [TSLTools](https://github.com/reactive-systems/tsltools)
+(providingn `tsl2tlsf` and `cfm2code`) and an LTL synthesizer that
+adheres to the rules of the LTL track of the [Reactive Synthesis
+Competition (SYNTCOMP)](http://www.syntcomp.org/). We used [Strix
+(v18.07)](https://strix.model.in.tum.de/), since the tool is able to
+synthesize a CFM from the TSL specification within a few
+seconds. However, other alternatives also are also possible, as for
+example the tools [BoSy](https://github.com/reactive-systems/bosy), or
+[PARTY](https://github.com/5nizza/party-elli).
   
-## Desktop + Web Applications
+## Desktop + Web
 
 We recommend using the [Haskell Tool Stack](http://haskellstack.org/)
 for building both applications. The tool automatically pulls the
@@ -92,7 +83,7 @@ required version of the Glasgow Haskell Compiler (GHC) and all
 required dependencies. Using `stack`, their installation will not
 interfer with any system installation.
 
-## Hardware Application
+## Hardware
 
 * [CλaSH Compiler](https://github.com/clash-lang/clash-compiler) (commit fff4606)
 * [Yosys](https://github.com/cliffordwolf/yosys)
@@ -101,4 +92,6 @@ interfer with any system installation.
 * [iceprog](https://github.com/cliffordwolf/icestorm/tree/master/iceprog)
 * [iCEDude](https://github.com/reactive-systems/icedude)
 
-
+To play with hardware, however, the respective parts must be purchased
+first and some adapters need be created. More details on the
+individual steps are provided [here (TBD)]().
