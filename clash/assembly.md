@@ -4,12 +4,12 @@
 
 | Quantity | Description | Specification |
 |:-:|:-|:-|
-| 1  | [iCEblink40HX1K Evaluation Kit](https://www.latticesemi.com/en/Products/DevelopmentBoardsAndKits/iCEblink40HX1KEvaluationKit) | |
-| 1  | [Kitchen Timer PCB](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly/gerber) | |
-| 1  | Buzzer | active or passive, RM 6.5mm |
-| 4  | 7-Segment Display | [SA36-11GWA](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly/datasheets/7segment.pdf) |
-| 3  | Push Button Switch | DIP THT 4-Pin, 6mm |
+| 1  | iCEblink40HX1K Evaluation Kit | [Homepage](https://www.latticesemi.com/en/Products/DevelopmentBoardsAndKits/iCEblink40HX1KEvaluationKit) |
+| 1  | Kitchen Timer PCB | [Gerber Files](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly/gerber) |
 | 1  | PNP Transistor | [BC547C](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly/datasheets/bc547c) |
+| 4  | 7-Segment Display | [SA36-11GWA](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly/datasheets/7segment.pdf) |
+| 1  | Buzzer | active or passive, RM 6.5mm |
+| 3  | Push Button Switch | DIP THT, 4-Pin, 6mm |
 | 4  | 2.7kΩ Resistor | SMD, 0805 type |
 | 28 | 56Ω Resistor | SMD, 0805 type |
 | 4  | Pin-Header   | male, RM 2.54mm, 1 x 6 |
