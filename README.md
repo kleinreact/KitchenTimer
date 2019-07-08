@@ -50,7 +50,7 @@ realize the following requirements:
   reaches zero while counting down.
 10. The display always shows the time that is currently set.
 
-# Installation Requirements
+# Installation
 
 First, create a copy of `build.cfg_sample` and safe it to `build.cfg`:
 
@@ -65,8 +65,8 @@ respective paths must be set in `build.cfg`.
 
 ## Synthesis
 
-You need [TSLTools](https://github.com/reactive-systems/tsltools)
-(providingn `tsl2tlsf` and `cfm2code`) and an LTL synthesizer that
+You need [TslTools](https://github.com/reactive-systems/tsltools),
+which provides `tsl2tlsf` and `cfm2code`, and an LTL synthesizer that
 adheres to the rules of the LTL track of the [Reactive Synthesis
 Competition (SYNTCOMP)](http://www.syntcomp.org/). We used [Strix
 (v18.07)](https://strix.model.in.tum.de/), since the tool is able to
@@ -92,6 +92,7 @@ interfer with any system installation.
 * [iceprog](https://github.com/cliffordwolf/icestorm/tree/master/iceprog)
 * [iCEDude](https://github.com/reactive-systems/icedude)
 
-To play with hardware, however, the respective parts must be purchased
-first and some adapters need be created. More details on the
-individual steps are provided [here (TBD)]().
+To play with hardware, first the respective parts must be purchased f
+and the custom kitchen timer PCB shield needs to be created. More
+detailed information on the respective process  can be found in our
+[assembly tutorial](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly.md).
