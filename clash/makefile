@@ -34,7 +34,7 @@ ${BUILDDIR}/iceblink/${NAME}.blif: ${BUILDDIR}/verilog/${TOPENTITY}/${NAME}.v
 
 ${BUILDDIR}/verilog/${TOPENTITY}/${NAME}.v: src/${TOPENTITY}.hs src/Control.hs
 	mkdir -p ${BUILDDIR}/clash
-	cd src && ${CLASH} -outputdir ../${BUILDDIR}/clash --verilog ${TOPENTITY}.hs
+	cd src && ${CLASH} ${CPP_FLAGS} -outputdir ../${BUILDDIR}/clash --verilog ${TOPENTITY}.hs
 	rm -Rf ${BUILDDIR}/verilog/${TOPENTITY}
 	mv ${BUILDDIR}/clash/verilog ${BUILDDIR}/
 

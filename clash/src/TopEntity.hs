@@ -13,6 +13,7 @@
   , LambdaCase
   , MultiWayIf
   , RecordWildCards
+  , CPP
 
   #-}
 
@@ -239,7 +240,11 @@ beeper enabled =
   in
     gate
       id (hold' `_and_` (beeptime <$> counter))
+#ifdef PASSIVEBUZZER
       id (const False) beepFreq
+#else
+      id (const False) (pure True)
+#endif
 
   where
     beeptime x =
@@ -253,6 +258,7 @@ beeper enabled =
 
 -----------------------------------------------------------------------------
 
+#ifdef PASSIVEBUZZER
 beepFreq
   :: HiddenClockReset domain gated synchronous
   => Signal domain Bool
@@ -266,6 +272,7 @@ beepFreq =
     step' = gate (< 36) step (+ 1) (const 0) step
   in
     output'
+#endif
 
 -----------------------------------------------------------------------------
 

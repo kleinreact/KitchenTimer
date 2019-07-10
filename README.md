@@ -74,7 +74,7 @@ synthesize a CFM from the TSL specification within a few
 seconds. However, other alternatives also are also possible, as for
 example the tools [BoSy](https://github.com/reactive-systems/bosy), or
 [PARTY](https://github.com/5nizza/party-elli).
-  
+
 ## Desktop + Web
 
 We recommend using the [Haskell Tool Stack](http://haskellstack.org/)
@@ -85,6 +85,9 @@ interfer with any system installation.
 
 ## Hardware
 
+The following tools are required for creating the final binary to be
+upload to the hardware:
+
 * [CλaSH Compiler](https://github.com/clash-lang/clash-compiler) (commit fff4606)
 * [Yosys](https://github.com/cliffordwolf/yosys)
 * [nextpnr](https://github.com/YosysHQ/nextpnr)
@@ -92,7 +95,15 @@ interfer with any system installation.
 * [iceprog](https://github.com/cliffordwolf/icestorm/tree/master/iceprog)
 * [iCEDude](https://github.com/reactive-systems/icedude)
 
-To play with hardware, first the respective parts must be purchased f
+Before that, however, the respective hardware parts must be purchased
 and the custom kitchen timer PCB shield needs to be created. More
-detailed information on the respective process  can be found in our
-[assembly tutorial](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly.md).
+detailed information on this process can be found in the [assembly
+tutorial](https://github.com/reactive-systems/KitchenTimer/blob/master/clash/assembly.md).
+To this end, note that you can either use an active buzzer, shipped
+with a builtin wave generator that only produces a single tone, or a
+passive buzzer that requires the respective output frequency to be
+produced manually.  By default, we assume that an active buzzer is
+used. However, if you want to use a passive buzzer instead, you also
+need to add to following line to your `build.cfg`:
+
+`CPP_FLAGS=-DPASSIVEBUZZER`
