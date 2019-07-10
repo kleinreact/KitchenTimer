@@ -7,7 +7,5 @@ extra-deps:
   , yampa-gloss-0.2
   , simple-affine-space-0.1
   , proteaaudio-0.7.1.0
-  , SDL-mixer-0.6.3.0
-  , SDL-0.6.7.0
   ]
 extra-package-dbs: []
