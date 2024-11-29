@@ -35,10 +35,8 @@ import Control
   Synthesize
     { t_name    = "KitchenTimer"
     , t_inputs  =
-        [ PortProduct ""
-            [ PortName "CLOCK"
-            , PortName "RESET"
-            ]
+        [ PortName "CLOCK"
+        , PortName "RESET"
         , PortName "BTMIN"
         , PortName "BTSEC"
         , PortName "BTSAS"
@@ -69,7 +67,7 @@ data Time =
     , minD1 :: Unsigned 4
     , ticks :: Unsigned 19
     }
-  deriving (Eq)
+  deriving (Eq, Generic, NFDataX)
 
 -----------------------------------------------------------------------------
 
@@ -82,13 +80,14 @@ zero =
 -----------------------------------------------------------------------------
 
 topEntity
-  :: SystemClockReset
-  => Signal System Bool
+  :: Clock System
+  -> Reset System
+  -> Signal System Bool
   -> Signal System Bool
   -> Signal System Bool
   -> Signal System (Digit, Digit, Digit, Digit, Bool)
 
-topEntity bM bS bA =
+topEntity clk rst bM bS bA = withClockResetEnable clk rst enableGen $
   let
     bM' = debounce bM
     bS' = debounce bS
@@ -196,7 +195,7 @@ toDigit = \case
 -----------------------------------------------------------------------------
 
 debounce
-  :: HiddenClockReset domain gated synchronous
+  :: HiddenClockResetEnable domain
   => Signal domain Bool -> Signal domain Bool
 
 debounce input =
@@ -220,7 +219,7 @@ debounce input =
 -----------------------------------------------------------------------------
 
 beeper
-  :: HiddenClockReset domain gated synchronous
+  :: HiddenClockResetEnable domain
   => Signal domain Bool
   -> Signal domain Bool
 

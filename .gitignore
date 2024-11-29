@@ -3,6 +3,8 @@
 build.cfg
 clash/src/Control.hs
 clash/build
+clash/dist-newstyle/
+clash/.ghc.environment.*
 yampa/src/Control.hs
 yampa/.stack-work
 yampa/dist

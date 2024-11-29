@@ -12,6 +12,9 @@ CLASH_FLAGS=-fconstraint-solver-iterations=0
 # https://haskellstack.org
 STACK=stack
 
+# https://www.haskell.org/cabal
+CABAL=cabal
+
 # https://github.com/clash-lang/clash-compiler
 CLASH=clash
 
